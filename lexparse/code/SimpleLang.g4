@@ -1,7 +1,7 @@
 grammar SimpleLang;
 
 project
-    : PROJECT IDENT (constdecl | vardecl | classdecl | enumdecl | interfacedecl)* LCUR (methoddecl)* RCUR
+    : PROJECT IDENT (constdecl | vardecl | classdecl | enumdecl | interfacedecl)* LCUR (methoddecl)* RCUR EOF
     ;
 
 constdecl
@@ -53,7 +53,7 @@ statement
     ;
 
 designatorstatement
-    : designator (assignop expr | LPAREN (actpars) RPAREN | INCR | DECR)
+    : designator (assignop expr | LPAREN (actpars)? RPAREN | INCR | DECR)
     ;
 
 actpars
@@ -81,7 +81,7 @@ term
     ;
 
 factor
-    : designator (LPAREN (actpars) RPAREN) 
+    : designator (LPAREN (actpars)? RPAREN)? 
     | NUMCONST 
     | CHARCONST 
     | BOOLEANCONST 
@@ -90,7 +90,7 @@ factor
     ;
 
 designator
-    : IDENT (PERIOD IDENT)* (LSQ expr RSQ)*
+    : IDENT (PERIOD IDENT | LSQ (expr)* RSQ)*
     ;
 
 assignop
