@@ -1,0 +1,3 @@
+match(a:Person{name:"Nikhil"})
+	match(u:University{name:"UTAustin"})
+    create(a)-[:Studies]->(u);

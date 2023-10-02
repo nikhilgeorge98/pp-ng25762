@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./Database/scripts/setupneo4j

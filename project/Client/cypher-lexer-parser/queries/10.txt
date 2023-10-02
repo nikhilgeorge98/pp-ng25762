@@ -1,0 +1,1 @@
+match(a)-[:Studies]->(u) return a.name, u.name;

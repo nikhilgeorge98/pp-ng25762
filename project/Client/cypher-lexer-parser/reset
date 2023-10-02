@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm C*.!(g4)
+rm *.jar

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo apt-get purge -y neo4j
+sudo apt autoremove -y
+sudo rm -rf /var/lib/neo4j/
+rm -rf \$HOME/.neo4j/

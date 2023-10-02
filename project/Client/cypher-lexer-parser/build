@@ -1,0 +1,5 @@
+#!/bin/bash
+
+curl -O https://www.antlr.org/download/antlr-4.13.1-complete.jar
+pip install -r requirements.txt
+java -jar antlr-4.13.1-complete.jar -Dlanguage=Python3 Cypher.g4

@@ -1,0 +1,3 @@
+match(a:Person{name:"Nikhil"})
+	match(c:City{name:"Bangalore"})
+    create(a)-[:Born]->(c);

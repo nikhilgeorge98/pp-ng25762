@@ -1,0 +1,18 @@
+create(:Person{name:"Nikhil", age:25});
+create(:City{name:"Bangalore"});
+create(:City{name:"Austin"});
+create(:University{name:"UTAustin"});
+match(a:Person{name:"Nikhil"})
+	match(c:City{name:"Bangalore"})
+    create(a)-[:Born]->(c);
+match(a:Person{name:"Nikhil"})
+	match(c:City{name:"Austin"})
+    create(a)-[:Lives]->(c);
+match(a:Person{name:"Nikhil"})
+	match(u:University{name:"UTAustin"})
+    create(a)-[:Studies]->(u);
+match(u:University{name:"UTAustin"})
+	match(c:City{name:"Austin"})
+    create(u)-[:Located]->(c);
+match(a)-[:Studies]->(u) return a.name, u.name;
+match(a) detach delete a;

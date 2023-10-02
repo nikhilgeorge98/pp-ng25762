@@ -1,0 +1,1 @@
+created(:Person{name:"Nikhil", age:25});

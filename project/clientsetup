@@ -1,0 +1,5 @@
+#!/bin/bash
+
+curl -O https://www.antlr.org/download/antlr-4.13.1-complete.jar
+mv antlr-4.13.1-complete.jar Client/cypher-lexer-parser/
+pip install -r Client/cypher-lexer-parser/requirements.txt
