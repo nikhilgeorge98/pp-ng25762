@@ -1,0 +1,4 @@
+Morph subclass: #Gnode
+	instanceVariableNames: 'type properties edges typeMorph propMorph edgeMorph'
+	classVariableNames: ''
+	package: 'Graph'

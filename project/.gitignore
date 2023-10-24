@@ -7,3 +7,6 @@ __pycache__/
 antlr-4.13.1-complete.jar
 testinput
 Main.java
+trial*.*
+trial*
+Trial*

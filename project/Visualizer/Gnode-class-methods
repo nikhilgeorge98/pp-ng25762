@@ -1,0 +1,5 @@
+type: aType
+    |node|
+    node:=self new.
+    node type: aType.
+    ^node.

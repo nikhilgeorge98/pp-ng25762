@@ -4,6 +4,8 @@ from antlr4.error.ErrorListener import *
 from CypherLexer import CypherLexer
 from CypherParser import CypherParser
 # from VisitorInterp import VisitorInterp
+import json
+import requests
 
 class parseErrorListener(ErrorListener):
     def reportAmbiguity(self, recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs):
@@ -31,11 +33,33 @@ def main(arg):
     parser.removeErrorListeners()
     parser.addErrorListener(parseErrorListener())
     tree = parser.oC_Cypher()
+    
+    return parser.getNumberOfSyntaxErrors()
 
 
 if __name__ == '__main__':
+
+    server_url = "http://localhost:8080/query"
+
     while(1):
         query = input('Enter a Cypher Query: ')
         print("Input Query is: ", query)
-        main(query)
+        errorCount = main(query)
+        
+        if errorCount>0:
+            continue
+        
+        request = {
+            "query": query
+        }
+        request_json = json.dumps(request)
+        print("Request: ", request_json)
+
+        try:
+            response = requests.post(server_url, request_json)
+            result = response.json()
+            print(json.dumps(result))
+        except requests.exceptions.RequestException as e:
+            print("Error is sending request/no response: ", e)
+        
         # main(sys.argv)

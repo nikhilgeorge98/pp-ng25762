@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd Server
+go get github.com/neo4j/neo4j-go-driver/v5
+cd ..

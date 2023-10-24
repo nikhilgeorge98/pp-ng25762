@@ -1,0 +1,46 @@
+initialize
+    super initialize.
+    type:=''.
+    properties:=Dictionary new.
+    start:=Gnode new.
+    end:=Gnode new.
+
+    typeMorph:=TextMorph new.
+
+    propMorph:=TextMorph new.
+
+end
+	^end.
+
+end:
+    end:=aEnd.
+
+getPropMorph
+    ^propMorph contents.
+
+get Property: label
+    ^properties at: label ifAbsent: [nil].
+
+getTypeMorph
+    ^typeMorph contents
+
+setPropMorph: aProp
+    propMorph contents: aProp
+
+setProperty: label to: value
+    properties at: label put: value
+
+setTypeMorph: aType
+    typeMorph contents: aType.
+
+start   
+    ^start.
+
+start: aStart
+    start:=aStart
+
+type
+    ^type.
+
+type: aType
+    type:=aType

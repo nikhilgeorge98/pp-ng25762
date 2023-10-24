@@ -1,0 +1,52 @@
+|graph json path nodes edges canvas|
+
+"Read from string"
+json := '{"nodes": [{"name": "Nikhil", "type": "Person"}, {"name": "Bangalore", "type": "City"}, {"name": "Austin", "type": "City"}, {"name": "UTAustin", "type": "University"}], "relationships": [{"source": "Nikhil", "target": "Bangalore", "type": "Born"}, {"source": "Nikhil", "target": "Austin", "type": "Lives"}, {"source": "Nikhil", "target": "UTAustin", "type": "Studies"}, {"source": "UTAustin", "target": "Austin", "type": "Located"}]}'.
+
+graph := NeoJSONReader fromString: json.
+
+
+"Read from file"
+path:='/home/nikhil/Pharo/json/data.json'.
+
+graph := path asFileReference
+	readStreamDo: [ :readStream |
+		(NeoJSONReader on: readStream) next ].
+
+nodes:= (graph at: 'nodes') collect: [:each |
+	|node nodeMorph|
+	nodeMorph:=Gnode new.
+	node:= each asDictionary. 
+	
+	nodeMorph setTypeMorph: (node at: 'type').
+	nodeMorph type: (node at: 'type').
+   nodeMorph setPropMorph: {('Name: ', (node at: 'name'))} asString.
+].
+
+edges:= (graph at: 'relationships') collect: [:each |
+	|edge eMorph|
+	eMorph:=Gedge new.
+	edge:= each asDictionary. 
+	
+	eMorph setTypeMorph: (edge at: 'type').
+	eMorph type: (edge at: 'type').
+	eMorph start: (edge at: 'source').
+	eMorph end: (edge at: 'target').
+].
+
+Transcript show: nodes; cr.
+Transcript show: edges; cr.
+
+"GUI display code goes here"
+"canvas := FormCanvas extent: 400@300.
+
+nodes do:[:node |
+	canvas drawMorph: node.
+	].
+
+edges do:[:edge |
+	canvas drawMorph: edge.
+	].
+
+canvas openInWorld."
+

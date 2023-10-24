@@ -22,3 +22,28 @@ Group: 475
 Note: 
 1. Refactoring of the entire `project` directory will be done when all components are added
 2. Client interface functionality will be updated as more tasks need to be performed
+
+### Part 2 ###
+
+#### To run: ####
+
+1. Run `./serversetup` to install neo4j dependency for Go
+2. Run `./server` to run the server
+3. Run `./client` to launch client
+
+#### Included: ####
+1. Server(Part 1, Part 2):
+    * Runs preselected queries from `Client\cypher-parser-lexer\queries` on Neo4j
+    * Accepts query from client and runs it on Neo4j
+
+2. Client(Part 2):
+    * If query is valid, sends a request to server with the query
+
+3. Visualizer(Smalltalk):
+    * Implemented Node and Edge classes using Morph superclass
+    * Can read graph from json string or file in the filesystem
+    * Node and Edge properties are populated - visualization has not been implemented yet
+
+Note: 
+1. Client waits for server response, which is not implemented yet - exception is thrown always on clientside
+2. There were issues with pushing Smalltalk code to GitHub - for now they are included in the Visualizer directory, this will be changed for the final version of the project

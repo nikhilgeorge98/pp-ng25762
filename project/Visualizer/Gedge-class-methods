@@ -1,0 +1,5 @@
+type: aType
+    |edge|
+    edge := self new.
+    edge type: aType.
+    ^edge

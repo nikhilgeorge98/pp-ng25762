@@ -1,0 +1,47 @@
+initialize
+    super initialize
+    type:=''.
+    properties:=Dictionary new.
+    edges:=OrderedCollection new.
+    typeMorph:=TextMorph new.
+    propMorph:=TextMorph new.
+    edgeMorph:=TextMorph new.
+
+addEdge: node
+    edges add: node.
+
+edges
+    ^edges.
+
+getEdgeMorph
+    ^edgeMorph contents.
+
+getPropMorph
+    ^propMorph contents.
+
+getProperty: label
+    ^properties at: label ifAbsent: [nil].
+
+getTypeMorph
+    ^typeMorph contents.
+
+removeEdge: node
+    edges remove: node ifAbsent: [].
+
+setEdgeMorph: aEdge
+    edgeMorph contents: aEdge.
+
+setPropMorph: aProp
+    propMorph contents: aProp.
+
+setProperty: label to: value
+    properties at: label put: value
+
+setTypeMorph: aType
+    typeMorph contents: aType.
+
+type
+    ^type.
+
+type: aType
+    type:=aType

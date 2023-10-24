@@ -1,0 +1,4 @@
+Morph subclass: #Gedge
+	instanceVariableNames: 'type properties start end typeMorph propMorph'
+	classVariableNames: ''
+	package: 'Graph'
