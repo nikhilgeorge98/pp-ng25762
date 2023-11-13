@@ -1,0 +1,71 @@
+[
+  {
+    "Values": [
+      {
+        "Id": 0,
+        "ElementId": "0",
+        "Labels": [
+          "Person"
+        ],
+        "Props": {
+          "age": 25,
+          "name": "Nikhil"
+        }
+      }
+    ],
+    "Keys": [
+      "A"
+    ]
+  },
+  {
+    "Values": [
+      {
+        "Id": 1,
+        "ElementId": "1",
+        "Labels": [
+          "City"
+        ],
+        "Props": {
+          "name": "Bangalore"
+        }
+      }
+    ],
+    "Keys": [
+      "A"
+    ]
+  },
+  {
+    "Values": [
+      {
+        "Id": 2,
+        "ElementId": "2",
+        "Labels": [
+          "City"
+        ],
+        "Props": {
+          "name": "Austin"
+        }
+      }
+    ],
+    "Keys": [
+      "A"
+    ]
+  },
+  {
+    "Values": [
+      {
+        "Id": 3,
+        "ElementId": "3",
+        "Labels": [
+          "University"
+        ],
+        "Props": {
+          "name": "UTAustin"
+        }
+      }
+    ],
+    "Keys": [
+      "A"
+    ]
+  }
+]

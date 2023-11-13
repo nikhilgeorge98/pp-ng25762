@@ -15,4 +15,4 @@ sudo neo4j start
 sleep 5
 
 echo "Launching Cypher shell"
-cypher-shell -u neo4j -p neo4jubuntu@2023 -a neo4j://localhost:7687 --file Client/cypher-lexer-parser/queries/test.txt
+cypher-shell -u neo4j -p neo4jubuntu@2023 -a neo4j://localhost:7687 --file Client/cypher-lexer-parser/queries/example/test.txt
