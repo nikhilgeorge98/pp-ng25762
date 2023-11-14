@@ -1,0 +1,1 @@
+MATCH p=()-[r:FOLLOWS]->() RETURN p LIMIT 20;

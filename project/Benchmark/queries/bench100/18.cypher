@@ -1,0 +1,1 @@
+MATCH p=()-[r:DIRECTED]->() RETURN p LIMIT 30;

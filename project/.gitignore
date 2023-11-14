@@ -11,3 +11,4 @@ trial*.*
 trial*
 Trial*
 *.db
+_build

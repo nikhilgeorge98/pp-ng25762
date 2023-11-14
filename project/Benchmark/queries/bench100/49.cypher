@@ -1,0 +1,3 @@
+MATCH (p1:Person)-[:ACTED_IN|:DIRECTED|:PRODUCED|:WROTE]->(:Movie)<-[:ACTED_IN|:DIRECTED|:PRODUCED|:WROTE]-(p2:Person)
+WHERE p1 <> p2
+RETURN DISTINCT p1.name, p2.name;

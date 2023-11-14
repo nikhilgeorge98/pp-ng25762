@@ -1,4 +1,13 @@
-create(:Person{name:"Nikhil", age:25});
+create(:Person{name:"Alice"});
+create(:Person{name:"Nikhil", age:25, weight:75});
+create(:Person{name:"I", age:21, weight:75});
+create(:Person{name:"H", age:35, weight:75});
+create(:Person{name:"G", age:35, weight:75});
+create(:Person{name:"F", age:45, weight:75});
+create(:Person{name:"E", age:55, weight:75});
+create(:Person{name:"D", age:65, weight:75});
+create(:Person{name:"C", age:27, weight:75});
+create(:Person{name:"B", age:21, weight:75});
 create(:City{name:"Bangalore"});
 create(:City{name:"Austin"});
 create(:University{name:"UTAustin"});

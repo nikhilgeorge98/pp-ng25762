@@ -1,0 +1,42 @@
+#!/bin/bash
+
+echo "Clearing database"
+cypher-shell -u neo4j -p neo4jubuntu@2023 -a neo4j://localhost:7687 --file Benchmark/queries/clearDB.cypher
+
+echo "Populating with movies database"
+cypher-shell -u neo4j -p neo4jubuntu@2023 -a neo4j://localhost:7687 --file Benchmark/queries/movies.cypher
+
+repetitions=100
+
+log_dir="Benchmark/query_logs"
+mkdir -p "$log_dir"
+
+average_file="$log_dir/average_runtimes.txt"
+echo "QueryName,AverageRuntime(ms)" > "$average_file"
+
+for query_file in Benchmark/queries/bench100/*.cypher; do
+    query_name=$(basename "$query_file" .cypher)
+    
+    log_file="$log_dir/${query_name}_log.txt"
+
+    total_runtime=0
+    for ((i=1; i<=$repetitions; i++)); do
+        echo "Running $query_name - Run $i..."
+
+        runtime=$( { time cypher-shell -u neo4j -p neo4jubuntu@2023 -a neo4j://localhost:7687 -f "$query_file" > /dev/null; } 2>&1 | grep real | awk '{split($2, a, "m"); split(a[2], b, "."); print a[1]*60*1000 + b[1]*1000 + b[2]}' )
+        echo "runtime: $runtime"
+        
+        total_runtime=$((total_runtime + runtime))
+        echo "total_runtime: $total_runtime"
+        
+        echo "$i	$runtime" >> "$log_file"
+    done
+    
+    average_runtime=$(($total_runtime / $repetitions))
+    echo -e "$query_name,$average_runtime" >> "$average_file"
+
+    echo "Finished running $query_name $repetitions times. Average runtime: $average_runtime"
+done
+
+echo "All queries completed. Average runtimes stored in $average_file."
+

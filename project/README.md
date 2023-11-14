@@ -47,3 +47,24 @@ Note:
 Note: 
 1. Client waits for server response, which is not implemented yet - exception is thrown always on clientside
 2. There were issues with pushing Smalltalk code to GitHub - for now they are included in the Visualizer directory, this will be changed for the final version of the project
+
+### Part 3 ###
+
+#### To run: ####
+
+#### Included: ####
+1. Server(Part 3):
+    * Packages result into JSON and sends to client as Response
+
+2. Client(Part 3):
+    * Receives Response from server 
+    * Saves to JSON file as well as local SQLite DB
+
+3. Visualizer(OCaml):
+    * Reads result from JSON file and displays in tabular form
+
+4. Benchmark:
+    * 50 Cypher queries exectured 100 times each, average execution time stored
+
+Note:
+1. No script to run OCaml visualizer

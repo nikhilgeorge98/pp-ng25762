@@ -1,0 +1,1 @@
+MATCH p=()-[r:WROTE]->() RETURN p LIMIT 25;

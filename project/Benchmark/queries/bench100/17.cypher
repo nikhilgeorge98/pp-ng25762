@@ -1,0 +1,1 @@
+MATCH p=()-[r:ACTED_IN]->() RETURN p LIMIT 25;
